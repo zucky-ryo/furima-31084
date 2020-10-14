@@ -11,7 +11,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it '価格が¥300~¥9,999,999の間の時、出品できる' do
-        @item.price = 10000
+        @item.price = 10_000
         expect(@item).to be_valid
       end
     end
@@ -23,12 +23,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
       it 'nameが存在しない時出品できない' do
-        @item.name = ""
+        @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
       it 'textが存在しない時出品できない' do
-        @item.text = ""
+        @item.text = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Text can't be blank")
       end
@@ -65,17 +65,17 @@ RSpec.describe Item, type: :model do
       it '価格が¥300未満の時出品できない' do
         @item.price = 200
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it '価格が¥9,999,999を超えるとき出品できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 10000000")
+        expect(@item.errors.full_messages).to include('Price must be less than 10000000')
       end
       it 'priceが半角数字でない時出品できない' do
-        @item.price = "１００００"
+        @item.price = '１００００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
