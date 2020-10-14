@@ -9,19 +9,23 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :day
 
-  validates :image,      presence: true
-  validates :name,       presence: true
-  validates :text,       presence: true
-  validates :category,   presence: true
-  validates :status,     presence: true
-  validates :charge,     presence: true
-  validates :prefecture, presence: true
-  validates :day,        presence: true
-  validates :price,      presence: true, numericality: { greater_than_or_equal_to: 300, less_than: 10_000_000 }
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :text
+    validates :category
+    validates :status
+    validates :charge
+    validates :prefecture
+    validates :day
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than: 10_000_000 }
+  end
 
-  validates :category_id,   numericality: { other_than: 1 }
-  validates :status_id,     numericality: { other_than: 1 }
-  validates :charge_id,     numericality: { other_than: 1 }
-  validates :prefecture_id, numericality: { other_than: 1 }
-  validates :day_id,        numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :charge_id
+    validates :prefecture_id
+    validates :day_id
+  end
 end
