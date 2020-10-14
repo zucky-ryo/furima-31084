@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :days
 
+  validates :image,      presence: true
   validates :name,       presence: true
   validates :text,       presence: true
   validates :category,   presence: true
