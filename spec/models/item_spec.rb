@@ -40,7 +40,7 @@ RSpec.describe Item, type: :model do
       it 'category_idが1の時出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'status_idが存在しない時出品できない' do
         @item.status_id = nil
@@ -50,7 +50,7 @@ RSpec.describe Item, type: :model do
       it 'status_idが1の時出品できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status must be other than 1")
+        expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
       it 'charge_idが存在しない時出品できない' do
         @item.charge_id = nil
@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
       it 'charge_idが1の時出品できない' do
         @item.charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Charge must be other than 1")
+        expect(@item.errors.full_messages).to include('Charge must be other than 1')
       end
       it 'prefecture_idが存在しない時出品できない' do
         @item.prefecture_id = nil
@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
       it 'prefecture_idが1の時出品できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'day_idが存在しない時出品できない' do
         @item.day_id = nil
@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
       it 'day_idが1の時出品できない' do
         @item.day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Day must be other than 1")
+        expect(@item.errors.full_messages).to include('Day must be other than 1')
       end
       it 'priceが存在しない時出品できない' do
         @item.price = nil
