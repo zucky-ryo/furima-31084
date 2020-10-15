@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  NAME_REGEX = { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'Full-width characters' }
-  NAME_KANA_REGEX = { with: /\A[ァ-ン]+\z/, message: 'Full-width katakana characters' }
+  has_many :items
+
+  NAME_REGEX = { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'Full-width characters' }.freeze
+  NAME_KANA_REGEX = { with: /\A[ァ-ン]+\z/, message: 'Full-width katakana characters' }.freeze
 
   validates :nickname,    presence: true
   validates :family_name, presence: true, format: NAME_REGEX
