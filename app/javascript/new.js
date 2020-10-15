@@ -1,7 +1,6 @@
 window.addEventListener('turbolinks:load', () => {
   let urlPath = location.pathname;
   if (urlPath.match(/items/)) {
-    console.log("aaa")
     const form = document.getElementById("item-price");
     const tax = document.getElementById("add-tax-price");
     const profit = document.getElementById("profit");
