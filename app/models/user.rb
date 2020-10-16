@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :orders
 
   NAME_REGEX = { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'Full-width characters' }.freeze
   NAME_KANA_REGEX = { with: /\A[ァ-ン]+\z/, message: 'Full-width katakana characters' }.freeze
