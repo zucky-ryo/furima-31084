@@ -8,12 +8,11 @@ const pay = () => {
     const formData = new FormData(formResult);
 
     const card = {
-      number: formData.get("card[number]"),
-      exp_month: formData.get("card[exp-month]"),
-      exp_year: `20${formData.get("card[exp-year]")}`,
-      cvc: formData.get("card[cvc]"),
+      number: formData.get("user_order[number]"),
+      exp_month: formData.get("user_order[exp-month]"),
+      exp_year: `20${formData.get("user_order[exp-year]")}`,
+      cvc: formData.get("user_order[cvc]"),
     };
-
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;
