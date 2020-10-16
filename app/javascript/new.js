@@ -1,4 +1,4 @@
-window.addEventListener('turbolinks:load', () => {
+window.addEventListener('load', () => {
   let urlPath = location.pathname;
   if (urlPath.match(/items/)) {
     const form = document.getElementById("item-price");
