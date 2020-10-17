@@ -17,22 +17,22 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品出品がうまくいかない時' do
-      it 'imageが存在しない時出品できない' do
+      it 'imageが空の時出品できない' do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
-      it 'nameが存在しない時出品できない' do
+      it 'nameが空の時出品できない' do
         @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
-      it 'textが存在しない時出品できない' do
+      it 'textが空の時出品できない' do
         @item.text = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Text can't be blank")
       end
-      it 'category_idが存在しない時出品できない' do
+      it 'category_idが空の時出品できない' do
         @item.category_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
@@ -42,7 +42,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
-      it 'status_idが存在しない時出品できない' do
+      it 'status_idが空の時出品できない' do
         @item.status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
@@ -52,7 +52,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
-      it 'charge_idが存在しない時出品できない' do
+      it 'charge_idが空の時出品できない' do
         @item.charge_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Charge can't be blank")
@@ -62,7 +62,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Charge must be other than 1')
       end
-      it 'prefecture_idが存在しない時出品できない' do
+      it 'prefecture_idが空の時出品できない' do
         @item.prefecture_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
@@ -72,7 +72,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
-      it 'day_idが存在しない時出品できない' do
+      it 'day_idが空の時出品できない' do
         @item.day_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Day can't be blank")
@@ -82,7 +82,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Day must be other than 1')
       end
-      it 'priceが存在しない時出品できない' do
+      it 'priceが空の時出品できない' do
         @item.price = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
