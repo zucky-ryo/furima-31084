@@ -76,6 +76,11 @@ RSpec.describe UserOrder, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include('Phone Input only number')
       end
+      it 'phoneがハイフンありの時購入できない' do
+        @order.phone = '090-1234-5678'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Phone Input only number')
+      end
     end
   end
 end
