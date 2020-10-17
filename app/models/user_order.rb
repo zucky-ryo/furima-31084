@@ -3,12 +3,12 @@ class UserOrder
   attr_accessor :post_code, :prefecture_id, :city, :address, :building, :phone, :token, :user_id, :item_id
 
   
-
+  
   with_options presence: true do
-    validates :post_code
+    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :city
     validates :address
-    validates :phone
+    validates :phone, format: { with: /\A\d{10}\z|\A\d{11}\z/ } 
     validates :token
   end
 
