@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
     if @user_order.valid?
       pay_item
       @user_order.save
+      @item.update(buyer_id: current_user.id)
       redirect_to root_path
     else
       render :index
